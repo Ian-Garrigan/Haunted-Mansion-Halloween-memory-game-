@@ -1,4 +1,4 @@
-/* Universal css rule for the html */
+/* Universal css rule */
 * {
     padding: 0;
     margin: 0;
@@ -22,9 +22,10 @@ html {
 }
 
 /* Temporary title style */
-.tltle {
-    color: #7534b6;
-    background-color: rgba(240, 255, 255, 0.466);
+.title {
+    color: ghostwhite;
+    font-family: 'Nosifer';
+    background-color: rgba(57, 56, 56, 0.465);
     font-size: 70px;
     border-radius: 8px;
     max-width: 70%;
