@@ -1,3 +1,4 @@
+/* Universal css rule for the html */
 * {
     padding: 0;
     margin: 0;
@@ -7,9 +8,28 @@
 /* Setting a halloween themed background for the website
 credit: https://css-tricks.com/perfect-full-page-background-image/ */
 html {
-    background: url(assets/images/jack-o-lantern-background.jpg) no-repeat center center fixed;
+    background: url(/assets/images/jack-o-lantern-background.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+
+/* Gothic webfont kit from Font Squirrel */
+@font-face {
+    font-family: pphatton-medium-webfont, sans-serif;
+    src: url(pphatton-medium-webfont.woff);
+}
+
+/* Temporary title style */
+.tltle {
+    color: #7534b6;
+    background-color: rgba(240, 255, 255, 0.466);
+    font-size: 70px;
+    border-radius: 8px;
+    max-width: 70%;
+    margin: 1em auto;
+    text-align: center;
+}
+
+
