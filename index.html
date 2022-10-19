@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <meta name="description" content="#">
     <meta name="keywords" content="#">
     <link rel="shortcut icon" type="image/x-icon" href="#">
+    <!-- Css file -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- Google fonts library -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,12 +16,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
     <title>Haunted Mansion (memory game)</title>
 </head>
+
 <body>
     <!-- div for holding the entire game board -->
     <div class="game-board-container">
-        <h1 class="title">Haunted Mansion</h1>
+        <header>
+            <h1 class="title">Haunted Mansion</h1>
+        </header>
+        <div class="game-info">
+            <h3>Moves: <span id="moves">0</span>Time: <span id="timer">0:00</span></h3>
+        </div>
 
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>
