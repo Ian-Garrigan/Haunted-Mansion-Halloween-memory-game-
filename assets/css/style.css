@@ -23,14 +23,16 @@ html {
 
 /* Temporary title style */
 .title {
-    color: ghostwhite;
     font-family: 'Nosifer';
-    background-color: rgba(57, 56, 56, 0.465);
-    font-size: 70px;
-    border-radius: 8px;
-    max-width: 70%;
-    margin: 1em auto;
+    font-size: 4em;
+    max-width: 80%;
+    margin: 0.5em auto;
     text-align: center;
+    color: ghostwhite;
+    text-shadow: 0px 0px 5px #322f72, 0px 0px 10px #322f72, 0px 0px 10px #322f72,
+        0px 0px 20px #322f72;
 }
 
-
+.title:hover {
+    cursor: pointer;
+}
