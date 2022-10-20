@@ -81,7 +81,27 @@ const getData = () => [{
     }
 ];
 
-// Function for retrieving the cards in a random order
+// Function for shuffling and retrieving the card data
 const randomize = () => {
-const cardData = getData();
-}
+    const cardData = getData();
+    cardData.sort(() => Math.random() - 0.5);
+    return cardData;
+};
+ 
+// Function for generating cards (imagined as the window of the mansion) inside html page
+const cardGenerator = () => {
+    const cardData = randomize();
+    // Loop for generating 18 individual cards from the array
+cardData.forEach((item) => {
+    console.log(item);
+});
+    const mansion = document.createElement('div');
+    const mansionWindowOpened = document.createElement('img');
+    const mansionWindowClosed = document.createElement('img');
+    // Setting some class names
+    mansion.classList = 'mansion';
+    mansionWindowOpened.classList = 'window-opened';
+    mansionWindowClosed.classList = 'window-closed';
+};
+
+cardGenerator();
