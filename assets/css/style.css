@@ -21,7 +21,7 @@ html {
     src: url(pphatton-medium-webfont.woff);
 }
 
-/* Temporary title style */
+/* title style */
 .title {
     font-family: 'Nosifer';
     font-size: 4em;
@@ -35,4 +35,10 @@ html {
 
 .title:hover {
     cursor: pointer;
+}
+
+#mansion-style {
+    display: grid;
+    grid-template-columns: repeat(6, 3rem);
+    grid-template-rows: repeat(6, 3rem);
 }
