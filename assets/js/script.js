@@ -1,6 +1,6 @@
 // Declaring const variables for game
 const section = document.querySelector('section');
-const playerLives = document.querySelector('playerLives');
+const playerLives = document.querySelector('#playerLives');
 const playerLivesCat = 9;
 
 // Setting the playersLives text content 
@@ -44,3 +44,11 @@ const getData = () => [{
         name: 'scary clown'
     }
 ];
+
+// Function for retrieving the cards in a random order
+const randomize = () => {
+const cardData = getData();
+console.log(cardData);
+}
+
+randomize();
