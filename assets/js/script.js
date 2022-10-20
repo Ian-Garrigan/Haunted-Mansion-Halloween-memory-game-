@@ -1,5 +1,5 @@
 // Declaring const variables for game
-const section = document.querySelector('section');
+const mansionExterior = document.querySelector('.mansion-exterior');
 const playerLives = document.querySelector('#playerLives');
 const playerLivesCat = 9;
 
@@ -87,21 +87,30 @@ const randomize = () => {
     cardData.sort(() => Math.random() - 0.5);
     return cardData;
 };
- 
-// Function for generating cards (imagined as the window of the mansion) inside html page
+
+// Function for generating cards (imagined as the windows of the mansion exterior) inside html page
 const cardGenerator = () => {
     const cardData = randomize();
-    // Loop for generating 18 individual cards from the array
-cardData.forEach((item) => {
-    console.log(item);
-});
-    const mansion = document.createElement('div');
-    const mansionWindowOpened = document.createElement('img');
-    const mansionWindowClosed = document.createElement('img');
-    // Setting some class names
-    mansion.classList = 'mansion';
-    mansionWindowOpened.classList = 'window-opened';
-    mansionWindowClosed.classList = 'window-closed';
+    // Loop for 18 individual cards from the array
+    cardData.forEach((item) => {
+        const mansion = document.createElement('div');
+        const mansionWindowOpened = document.createElement('img');
+        const mansionWindowClosed = document.createElement('img');
+        mansionWindowClosed.setAttribute('src', 'assets/images/gothic-window.png')
+
+        // Setting some class names
+        mansion.classList = 'mansion';
+        mansionWindowOpened.classList = 'window-opened';
+        mansionWindowClosed.classList = 'window-closed';
+
+        // Getting the halloween characters by accessing the objects>imgSrc
+        mansionWindowOpened.src = item.imgSrc;
+        
+        // Placing the windows onto the mansion
+        mansionExterior.appendChild(mansion);
+        mansion.appendChild(mansionWindowOpened);
+        mansion.appendChild(mansionWindowClosed);
+    });
 };
 
 cardGenerator();
