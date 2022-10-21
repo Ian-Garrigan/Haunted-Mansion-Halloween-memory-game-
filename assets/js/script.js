@@ -112,6 +112,10 @@ const cardGenerator = () => {
         mansionExterior.appendChild(mansion);
         mansion.appendChild(mansionWindowOpened);
         mansion.appendChild(mansionWindowClosed);
+        // Reveal monster behind window on click 
+        mansion.addEventListener('click', (event) => {
+            mansion.classList.toggle('reveal-monster');
+        });
     });
 };
 
