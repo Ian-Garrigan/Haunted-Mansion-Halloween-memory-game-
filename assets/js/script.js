@@ -1,7 +1,7 @@
 // Declaring const variables for game
 const mansionExterior = document.querySelector('.mansion-exterior');
 const playerLives = document.querySelector('#playerLives');
-const playerLivesCat = 9;
+let playerLivesCat = 9;
 
 // Setting the playersLives text content 
 playerLives.textContent = playerLivesCat;
@@ -146,6 +146,8 @@ const checkForMatch = (event) => {
                 mansion.classList.remove('cardFlipped');
                 setTimeout(() => mansion.classList.remove("reveal-monster"), 1000);
             });
+            playerLivesCat--;
+            playerLives.textContent = playerLivesCat;
         };
     };
 };
