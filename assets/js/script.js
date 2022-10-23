@@ -136,11 +136,15 @@ const checkForMatch = (event) => {
             flippedWindows[1].getAttribute('name')
         ) {
             console.log('match');
+            flippedWindows.forEach((mansion) => {
+                mansion.classList.remove('cardFlipped');
+                mansion.style.pointerEvents = 'none';
+            });
         } else {
             console.log('wrong');
             flippedWindows.forEach(mansion => {
                 mansion.classList.remove('cardFlipped');
-                mansion.classList.remove("reveal-monster");
+                setTimeout(() => mansion.classList.remove("reveal-monster"), 1000);
             });
         };
     };
