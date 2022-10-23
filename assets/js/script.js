@@ -140,6 +140,7 @@ const checkForMatch = (event) => {
             console.log('wrong');
             flippedWindows.forEach(mansion => {
                 mansion.classList.remove('cardFlipped');
+                mansion.classList.remove("reveal-monster");
             });
         };
     };
