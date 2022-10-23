@@ -148,8 +148,36 @@ const checkForMatch = (event) => {
             });
             playerLivesCat--;
             playerLives.textContent = playerLivesCat;
+            // Run check for player lives equal 0 
+            if (playerLivesCat === 0) {
+                restart();
+            }
         };
     };
+};
+
+// Restart game funct when lives = 0 
+const restart = () => {
+    let cardData = randomize();
+    let revealedMonsters = document.querySelectorAll('.window-opened');
+    let cards = document.querySelectorAll('.mansion');
+    // Fix for bug whislt cards flipping back not able to click on anything on the screen
+    mansionExterior.style.pointerEvents = 'none';
+
+    // If lives run out flip all the cards back to original position
+    cardData.forEach((item, index) => {
+        cards[index].classList.remove('reveal-monster');
+        // making the cards random again and adding back pointer event when game restarts
+        setTimeout(() => {
+            cards[index].style.pointerEvents = "all";
+            revealedMonsters[index].src = item.imgSrc;
+            cards[index].setAttribute('name', item.name);
+            mansionExterior.style.pointerEvents = 'all';
+        }, 1000);
+    });
+    // Updating player lives count back to original state
+    playerLivesCat = 9
+    playerLives.textContent = playerLivesCat;
 };
 
 cardGenerator();
