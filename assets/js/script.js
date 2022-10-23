@@ -91,6 +91,7 @@ const randomize = () => {
 // Function for generating cards (imagined as the windows of the mansion exterior) inside html file
 const cardGenerator = () => {
     const cardData = randomize();
+
     // Loop for 18 individual cards from the array
     cardData.forEach((item) => {
         let mansion = document.createElement('div');
@@ -104,6 +105,7 @@ const cardGenerator = () => {
         mansionWindowClosed.classList = 'window-closed';
         mansionWindowOpened.setAttribute('alt', 'halloween monster');
 
+
         // Getting the halloween characters by accessing the objects>imgSrc
         mansionWindowOpened.src = item.imgSrc;
         mansion.setAttribute('name', item.name);
@@ -115,8 +117,32 @@ const cardGenerator = () => {
         // Reveal monster behind window on click 
         mansion.addEventListener('click', (event) => {
             mansion.classList.toggle('reveal-monster');
+            checkForMatch(event);
         });
     });
+};
+
+// Checking for possible card matches
+const checkForMatch = (event) => {
+    console.log(event);
+    const clickedCard = event.target;
+    clickedCard.classList.add('cardFlipped');
+    const flippedWindows = document.querySelectorAll('.cardFlipped');
+    console.log(flippedWindows);
+
+    if (flippedWindows.length === 2) {
+        if (
+            flippedWindows[0].getAttribute('name') ===
+            flippedWindows[1].getAttribute('name')
+        ) {
+            console.log('match');
+        } else {
+            console.log('wrong');
+            flippedWindows.forEach(mansion => {
+                mansion.classList.remove('cardFlipped');
+            });
+        };
+    };
 };
 
 cardGenerator();
