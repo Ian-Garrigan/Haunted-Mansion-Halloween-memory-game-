@@ -8,7 +8,7 @@
 /* Setting a halloween themed background for the website
 credit: https://css-tricks.com/perfect-full-page-background-image/ */
 html {
-    background: url(/assets/images/halloween-background-2.jpg) no-repeat center center fixed;
+    background: url(../images/halloween-background-2.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -26,7 +26,7 @@ body {
 /* Gothic webfont kit from Font Squirrel */
 @font-face {
     font-family: pphatton-medium-webfont, sans-serif;
-    src: url(/assets/webfont/pphatton-medium-webfont.woff);
+    src: url(../webfont/pphatton-medium-webfont.woff);
 }
 
 /* title style */
@@ -51,7 +51,7 @@ body {
 }
 
 #mansion-style {
-    cursor: url('/assets/images/crosshair.png'), auto;
+    cursor: url('../images/crosshair.png'), auto;
     display: grid;
     grid-template-columns: repeat(6, 4rem);
     grid-template-rows: repeat(6, 4rem);
