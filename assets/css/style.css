@@ -32,7 +32,7 @@ body {
 /* title style */
 .title {
     font-family: 'Nosifer';
-    font-size: 3em;
+    font-size: 9vw;
     /* max-width: 80%; */
     margin: 0.5em auto;
     text-align: center;
@@ -53,9 +53,9 @@ body {
 #mansion-style {
     cursor: url('../images/crosshair.png'), auto;
     display: grid;
-    grid-template-columns: repeat(6, 4rem);
-    grid-template-rows: repeat(6, 4rem);
-    grid-gap: 20px;
+    grid-template-columns: repeat(4, 5rem);
+    grid-template-rows: repeat(6, 5rem);
+    grid-gap: 10px;
     perspective: 800px;
 }
 
@@ -82,4 +82,25 @@ body {
 
 .reveal-monster {
     transform: rotateY(-540deg);
+}
+/* Tablet view */
+@media (min-width: 550px) {
+    #mansion-style {
+        grid-template-columns: repeat(4, 7rem);
+        grid-template-rows: repeat(6, 7rem);
+        grid-gap: 20px;
+    }
+    .title {
+        font-size: 6vw;
+    }
+}
+/* Desktop View */
+@media (min-width: 900px) {
+    #mansion-style {
+        grid-template-columns: repeat(6, 7rem);
+        grid-template-rows: repeat(3, 7rem);
+    }
+    .title {
+        font-size: 4vw;
+    }
 }
