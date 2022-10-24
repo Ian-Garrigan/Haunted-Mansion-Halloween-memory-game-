@@ -26,7 +26,7 @@ body {
 /* Gothic webfont kit from Font Squirrel */
 @font-face {
     font-family: pphatton-medium-webfont, sans-serif;
-    src: url(pphatton-medium-webfont.woff);
+    src: url(/assets/webfont/pphatton-medium-webfont.woff);
 }
 
 /* title style */
@@ -37,8 +37,8 @@ body {
     margin: 0.5em auto;
     text-align: center;
     color: ghostwhite;
-    text-shadow: 0px 0px 5px #322f72, 0px 0px 10px #322f72, 0px 0px 10px #322f72,
-        0px 0px 20px #322f72;
+    text-shadow: 0px 0px 5px rgb(205, 121, 12), 0px 0px 10px rgb(205, 121, 12), 0px 0px 10px rgb(205, 121, 12),
+        0px 0px 20px rgb(205, 121, 12);
 }
 
 .game-info {
@@ -71,8 +71,9 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
-    background: url(/assets/images/stone-wall.jpg);
+    background: url(../images/stone-wall.jpg);
     background-size: 100%;
+    pointer-events: none;
 }
 
 .window-closed {
