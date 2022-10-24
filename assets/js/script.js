@@ -128,6 +128,7 @@ const checkForMatch = (event) => {
     const clickedCard = event.target;
     clickedCard.classList.add('cardFlipped');
     const flippedWindows = document.querySelectorAll('.cardFlipped');
+    const allCardsToggled = document.querySelectorAll('.reveal-monster');
     console.log(flippedWindows);
 
     if (flippedWindows.length === 2) {
@@ -144,20 +145,24 @@ const checkForMatch = (event) => {
             console.log('wrong');
             flippedWindows.forEach(mansion => {
                 mansion.classList.remove('cardFlipped');
-                setTimeout(() => mansion.classList.remove("reveal-monster"), 1000);
+                setTimeout(() => mansion.classList.remove("reveal-monster"), 850);
             });
             playerLivesCat--;
             playerLives.textContent = playerLivesCat;
             // Run check for player lives equal 0 
             if (playerLivesCat === 0) {
-                restart();
+                restart('You were too slow! The halloween monsters survived, better luck next year!');
             }
         };
     };
+    // Check to see if user won the game
+    if(allCardsToggled.length === 16) {
+        restart('You found all the Halloween monsters, you win!');
+    }
 };
 
 // Restart game funct when lives = 0 
-const restart = () => {
+const restart = (text) => {
     let cardData = randomize();
     let revealedMonsters = document.querySelectorAll('.window-opened');
     let cards = document.querySelectorAll('.mansion');
@@ -178,6 +183,7 @@ const restart = () => {
     // Updating player lives count back to original state
     playerLivesCat = 9
     playerLives.textContent = playerLivesCat;
+    setTimeout(() => window.alert(text), 100);
 };
 
 cardGenerator();
