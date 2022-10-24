@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 // Declaring const variables for game
 const mansionExterior = document.querySelector('.mansion-exterior');
 const playerLives = document.querySelector('#playerLives');
@@ -124,7 +125,6 @@ const cardGenerator = () => {
 
 // Checking for possible card matches
 const checkForMatch = (event) => {
-    console.log(event);
     const clickedCard = event.target;
     clickedCard.classList.add('cardFlipped');
     const flippedWindows = document.querySelectorAll('.cardFlipped');
@@ -153,8 +153,8 @@ const checkForMatch = (event) => {
             if (playerLivesCat === 0) {
                 restart('You were too slow! The halloween monsters survived, better luck next year!');
             }
-        };
-    };
+        }
+    }
     // Check to see if user won the game
     if(allCardsToggled.length === 16) {
         restart('You found all the Halloween monsters, you win!');
@@ -181,7 +181,7 @@ const restart = (text) => {
         }, 1000);
     });
     // Updating player lives count back to original state
-    playerLivesCat = 9
+    playerLivesCat = 9;
     playerLives.textContent = playerLivesCat;
     setTimeout(() => window.alert(text), 100);
 };
