@@ -2,10 +2,10 @@
 // Declaring const variables for game
 const mansionExterior = document.querySelector('.mansion-exterior');
 const playerLives = document.querySelector('#playerLives');
-let playerLivesCat = 9;
+let playerLivesValue = 16;
 
 // Setting the playersLives text content 
-playerLives.textContent = playerLivesCat;
+playerLives.textContent = playerLivesValue;
 
 // Created an array of objects for my cards
 const getData = () => [{
@@ -93,25 +93,25 @@ const randomize = () => {
 // Function for generating cards (imagined as the windows of the mansion exterior) inside html file
 const cardGenerator = () => {
     const cardData = randomize();
-
+    
     // Loop for 18 individual cards from the array
     cardData.forEach((item) => {
         let mansion = document.createElement('div');
         let mansionWindowOpened = document.createElement('img');
         let mansionWindowClosed = document.createElement('img');
         mansionWindowClosed.setAttribute('src', 'assets/images/creepy-window.png');
-
+        
         // Setting some class names
         mansion.classList = 'mansion';
         mansionWindowOpened.classList = 'window-opened';
         mansionWindowClosed.classList = 'window-closed';
         mansionWindowOpened.setAttribute('alt', 'halloween monster');
-
-
+        
+        
         // Getting the halloween characters by accessing the objects>imgSrc
         mansionWindowOpened.src = item.imgSrc;
         mansion.setAttribute('name', item.name);
-
+        
         // Placing the windows onto the mansion
         mansionExterior.appendChild(mansion);
         mansion.appendChild(mansionWindowOpened);
@@ -125,15 +125,16 @@ const cardGenerator = () => {
 };
 
 // Countdown timer 
-var timeleft = 100;
-var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
-    clearInterval(downloadTimer);
-    document.getElementById("timeRemaining").innerHTML = "Finished";
-  } else {
-    document.getElementById("timeRemaining").innerHTML = timeleft + " seconds remaining..";
-  }
-  timeleft -= 1;
+var timeleft = 120;
+var downloadTimer = setInterval(function () {
+    if (timeleft <= 0  || playerLivesValue === 0) {
+        restart('You got spooked!');
+    document.getElementById('timeRemaining').innerHTML = 'Try Again! Don\'t be scared!';
+    timeleft = 120;
+    } else {
+        document.getElementById('timeRemaining').innerHTML = timeleft + ' seconds remaining..';
+    }
+    timeleft -= 1;
 }, 1000);
 
 // Checking for possible card matches
@@ -141,41 +142,40 @@ const checkForMatch = (event) => {
     const clickedCard = event.target;
     clickedCard.classList.add('cardFlipped');
     const flippedWindows = document.querySelectorAll('.cardFlipped');
-    const allCardsToggled = document.querySelectorAll('.reveal-monster');
-    console.log(flippedWindows);
+    var allCardsToggled = document.querySelectorAll('.reveal-monster');
 
     if (flippedWindows.length === 2) {
         if (
             flippedWindows[0].getAttribute('name') ===
             flippedWindows[1].getAttribute('name')
         ) {
-            console.log('match');
+
             flippedWindows.forEach((mansion) => {
                 mansion.classList.remove('cardFlipped');
                 mansion.style.pointerEvents = 'none';
             });
         } else {
-            console.log('wrong');
+
             flippedWindows.forEach(mansion => {
                 mansion.classList.remove('cardFlipped');
-                setTimeout(() => mansion.classList.remove("reveal-monster"), 850);
+                setTimeout(() => mansion.classList.remove('reveal-monster'), 850);
             });
-            playerLivesCat--;
-            playerLives.textContent = playerLivesCat;
+            playerLivesValue--;
+            playerLives.textContent = playerLivesValue;
             // Run check for player lives equal 0 
-            if (playerLivesCat === 0) {
+            if (playerLivesValue === 0) {
                 restart('You were too slow! The halloween monsters survived, better luck next year!');
             }
         }
     }
     // Check to see if user won the game
-    if(allCardsToggled.length === 16) {
+    if (allCardsToggled.length === 18) {
         restart('You found all the Halloween monsters, you win!');
     }
 };
 
 // Restart game funct when lives = 0 
-const restart = (text) => {
+function restart  (text) {
     let cardData = randomize();
     let revealedMonsters = document.querySelectorAll('.window-opened');
     let cards = document.querySelectorAll('.mansion');
@@ -187,15 +187,16 @@ const restart = (text) => {
         cards[index].classList.remove('reveal-monster');
         // making the cards random again and adding back pointer event when game restarts
         setTimeout(() => {
-            cards[index].style.pointerEvents = "all";
+            cards[index].style.pointerEvents = 'all';
             revealedMonsters[index].src = item.imgSrc;
             cards[index].setAttribute('name', item.name);
             mansionExterior.style.pointerEvents = 'all';
         }, 1000);
     });
     // Updating player lives count back to original state
-    playerLivesCat = 9;
-    playerLives.textContent = playerLivesCat;
+    playerLivesValue = 5;
+    timeleft = 120;
+    playerLives.textContent = playerLivesValue;
     setTimeout(() => window.alert(text), 100);
 };
 
