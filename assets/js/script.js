@@ -194,7 +194,7 @@ function restart  (text) {
         }, 1000);
     });
     // Updating player lives count back to original state
-    playerLivesValue = 5;
+    playerLivesValue = 16;
     timeleft = 120;
     playerLives.textContent = playerLivesValue;
     setTimeout(() => window.alert(text), 100);
