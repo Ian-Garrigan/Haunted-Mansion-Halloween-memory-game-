@@ -82,6 +82,7 @@ const getData = () => [{
     }
 ];
 
+
 // Function for shuffling and retrieving the card data
 const randomize = () => {
     const cardData = getData();
@@ -122,6 +123,18 @@ const cardGenerator = () => {
         });
     });
 };
+
+// Countdown timer 
+var timeleft = 100;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("timeRemaining").innerHTML = "Finished";
+  } else {
+    document.getElementById("timeRemaining").innerHTML = timeleft + " seconds remaining..";
+  }
+  timeleft -= 1;
+}, 1000);
 
 // Checking for possible card matches
 const checkForMatch = (event) => {
