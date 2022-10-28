@@ -42,11 +42,11 @@ body {
 .game-info {
     color: ghostwhite;
     font-family: 'Alkalami';
-    font-size: 2.5vw;
+    font-size: 3.22vw;
     background-color: #322f72b7;
-    margin: 3px;
+    margin: 7px 0px;
     border-radius: 4px;
-    padding: 1px 16px;
+    padding: 0px 3px;
     text-align: center;
     align-items: center;
     flex-direction: row;
