@@ -11,7 +11,7 @@
     <!-- Google fonts library -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alkalami&family=Nosifer&display=swap" rel="stylesheet">
     <!-- Css file -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Haunted Mansion (memory game)</title>
@@ -19,14 +19,15 @@
 
 <body>
     <!-- The name of my halloween game -->
-        <header>
-            <h1 class="title">Haunted Mansion</h1>
-        </header>
-        <div class="game-info">
-            <h3>Lives: <span id="playerLives"></span> &#10084; <div id="timeRemaining"></div></h3>
-        </div>
+    <header>
+        <h1 class="title">Haunted Mansion</h1>
+    </header>
+    <div class="game-info">
+        <p><em>Aim and click on the mansions windows!<br>Find all pairs of the Halloween visitors</em></p>
+    <div class="game-info" style="background: transparent"><p>Lives: <span id="playerLives"></span> &#10084; <br><span id="timeRemaining"></span></div>
+</div>
     <!-- section for holding the mansion game board -->
-        <section class="mansion-exterior" id="mansion-style"></section>
+    <section class="mansion-exterior" id="mansion-style"></section>
 
     <script src="assets/js/script.js" defer></script>
 </body>

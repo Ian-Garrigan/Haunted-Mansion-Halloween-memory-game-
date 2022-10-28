@@ -1,3 +1,8 @@
+/* Gothic webfont kit from Font Squirrel */
+@font-face {
+    font-family: pphatton-medium-webfont, sans-serif;
+    src: url(../webfont/pphatton-medium-webfont.woff);
+}
 /* Universal css rule */
 * {
     padding: 0;
@@ -23,11 +28,6 @@ body {
     flex-direction: column;
 }
 
-/* Gothic webfont kit from Font Squirrel */
-@font-face {
-    font-family: pphatton-medium-webfont, sans-serif;
-    src: url(../webfont/pphatton-medium-webfont.woff);
-}
 
 /* title style */
 .title {
@@ -41,12 +41,16 @@ body {
 
 .game-info {
     color: ghostwhite;
+    font-family: 'Alkalami';
+    font-size: 2.5vw;
     background-color: #322f72b7;
-    font-size: larger;
-    margin-bottom: 1em;
-    border-radius: 4px; 
-    padding: 2px 8px 2px 8px;
+    margin: 3px;
+    border-radius: 4px;
+    padding: 1px 16px;
     text-align: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
 }
 
 #mansion-style {
@@ -101,6 +105,18 @@ body {
     .title {
         font-size: 6vw;
     }
+
+    .game-info {
+        font-size: 1rem;
+    }
+
+    body {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
 }
 
 /* Desktop View */
@@ -112,5 +128,9 @@ body {
 
     .title {
         font-size: 5vw;
+    }
+
+    .game-info {
+        font-size: 1rem;
     }
 }
