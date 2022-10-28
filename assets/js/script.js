@@ -2,7 +2,7 @@
 // Declaring const variables for game
 const mansionExterior = document.querySelector('.mansion-exterior');
 const playerLives = document.querySelector('#playerLives');
-let playerLivesValue = 16;
+let playerLivesValue = 12;
 
 // Setting the playersLives text content 
 playerLives.textContent = playerLivesValue;
@@ -82,7 +82,6 @@ const getData = () => [{
     }
 ];
 
-
 // Function for shuffling and retrieving the card data
 const randomize = () => {
     const cardData = getData();
@@ -125,16 +124,13 @@ const cardGenerator = () => {
     });
 };
 
-
-
-
 // Countdown timer 
-var timeleft = 120;
+var timeleft = 100;
 var downloadTimer = setInterval(function () {
     if (timeleft <= 0 || playerLivesValue === 0) {
         restart('You got spooked!');
         document.getElementById('timeRemaining').innerHTML = 'Try Again! Don\'t be scared!';
-        timeleft = 120;
+        timeleft = 100;
     } else {
         document.getElementById('timeRemaining').innerHTML = timeleft + ' seconds remaining..';
     }
@@ -168,7 +164,7 @@ const checkForMatch = (event) => {
             playerLives.textContent = playerLivesValue;
             // Run check for player lives equal 0 
             if (playerLivesValue === 0) {
-                restart('You were too slow! The halloween monsters escaped, better luck next year!');
+                restart('You ran out of lives! The halloween monsters escaped, better luck next year!');
             }
         }
     }
@@ -197,19 +193,38 @@ function restart(text) {
             mansionExterior.style.pointerEvents = 'all';
         }, 1000);
     });
-    // Updating player lives count back to original state
-    playerLivesValue = 16;
-    timeleft = 120;
+    // Updating player lives count back to original state and showing monsters briefly again
+    playerLivesValue = 12;
+    timeleft = 100;
     playerLives.textContent = playerLivesValue;
     setTimeout(() => window.alert(text), 100);
+    setTimeout(() => {
+        var memoryHelp = document.querySelectorAll('.window-closed');
+        for (let element of memoryHelp) {
+            element.style.display = 'none';
+        }
+        setTimeout(() => {
+            var memoryHelp = document.querySelectorAll('.window-closed');
+            for (let element of memoryHelp) {
+                element.style.display = 'unset';
+            }
+        }, 2000)
+    }, 1600);
 };
 
-// display monsters for a couple of seconds when page loads
+// display monsters for a couple of seconds when page loads then hide
+
 setTimeout(() => {
-    const memoryHelp = document.querySelectorAll('.window-closed');
+    var memoryHelp = document.querySelectorAll('.window-closed');
     for (let element of memoryHelp) {
-        element.style.display = 'unset';
+        element.style.display = 'none';
     }
-}, 3050);
+    setTimeout(() => {
+        var memoryHelp = document.querySelectorAll('.window-closed');
+        for (let element of memoryHelp) {
+            element.style.display = 'unset';
+        }
+    }, 2000)
+}, 1600);
 
 cardGenerator();

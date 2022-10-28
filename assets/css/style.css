@@ -77,7 +77,7 @@ body {
 
 .window-closed {
     backface-visibility: hidden;
-    display: none;
+    display: unset;
 }
 
 .window-opened {
