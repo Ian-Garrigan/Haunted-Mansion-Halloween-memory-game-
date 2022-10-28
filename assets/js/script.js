@@ -209,8 +209,8 @@ function restart(text) {
                 element.style.display = 'unset';
             }
         }, 2000);
-    }, 1600)
-};
+    }, 1600);
+}
 
 // display monsters for a couple of seconds when page loads then hide
 
@@ -223,8 +223,8 @@ setTimeout(() => {
         var memoryHelp = document.querySelectorAll('.window-closed');
         for (let element of memoryHelp) {
             element.style.display = 'unset';
-        };
-    }, 2000)
+        }
+    }, 2000);
 }, 1600);
 
 cardGenerator();
